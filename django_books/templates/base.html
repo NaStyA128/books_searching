@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+
+    <link href="{% static 'books_app/bootstrap-3.3.2/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'books_app/bootstrap-3.3.2/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'books_app/css/style.css' %}" rel="stylesheet" type="text/css">
+
+    <script src="{% static 'books_app/js/jquery-1.9.1.min.js' %}"></script>
+    <script src="{% static 'books_app/bootstrap-3.3.2/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'books_app/js/scripts.js' %}"></script>
+</head>
+<body>
+    <div id="content" class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
