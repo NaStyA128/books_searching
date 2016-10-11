@@ -130,3 +130,37 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = "n.a.s.t.y.a28v@gmail.com"
 EMAIL_HOST_PASSWORD = '524788yfcnz2832844'
 EMAIL_PORT = 587
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'custom': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs_django.log',
+        },
+    },
+    'loggers': {
+        'custom': {
+            'handlers': ['custom'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
+# CELERY SETTINGS
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+# CELERYBEAT_SCHEDULE = {
+#     'add-every-1-day': {
+#         'task': 'search_engine.tasks.mail',
+#         'schedule': crontab(minute=0, hour=0)
+#     },
+# }
+#
+# CELERY_TIMEZONE = 'UTC'

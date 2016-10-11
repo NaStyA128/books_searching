@@ -11,11 +11,11 @@ class HomeView(FormView):
     template_name = 'index.html'
 
     def form_valid(self, form):
-        # result_form = form.start()
-        # if result_form:
-        return HttpResponseRedirect('/result/')
-        # else:
-        #     return HttpResponse('Ошибка поиска.')
+        result_form = form.start()
+        if result_form:
+            return HttpResponseRedirect('/result/')
+        else:
+            return HttpResponse('Ошибка поиска.')
 
 
 class ResultView(TemplateView):
