@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 09:02+0000\n"
+"POT-Creation-Date: 2016-10-12 13:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,11 +25,15 @@ msgstr "Text"
 msgid "E-mail"
 msgstr "E-mail"
 
-#: books_app/tasks.py:58
+#: books_app/forms.py:17
+msgid "Время поиска"
+msgstr "Search time"
+
+#: books_app/tasks.py:51
 msgid "Результаты"
 msgstr "Results"
 
-#: books_app/views.py:19
+#: books_app/views.py:20
 msgid "Ошибка поиска."
 msgstr "Error of searching."
 
@@ -46,8 +50,8 @@ msgid "Поиск был начат..."
 msgstr "Search was launched..."
 
 #: templates/info_user.html:8
-msgid "Результат будет отправлен на указанную почту."
-msgstr "The result will be sent to the specified e-mail."
+msgid "Результат будет отправлен на почту: "
+msgstr "The result will be sent to the e-mail: "
 
 #: templates/message.html:11
 msgid "Результаты поиска"
