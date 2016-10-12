@@ -16,5 +16,6 @@ class SearchForm(forms.Form):
     email = forms.EmailField(label=_('E-mail'), required=True)
 
     def start(self, lang):
-        return start_email.apply_async(args=[self.data, lang],
-                                       soft_time_limit=20)
+        if start_email.apply_async(args=[self.data, lang],
+                                   soft_time_limit=5):
+            return self.data

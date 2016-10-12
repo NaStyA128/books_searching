@@ -14,6 +14,7 @@ class HomeView(FormView):
     def form_valid(self, form):
         result_form = form.start(self.request.LANGUAGE_CODE)
         if result_form:
+            self.request.session['email'] = result_form['email']
             return HttpResponseRedirect('result')
         else:
             return HttpResponse(_('Ошибка поиска.'))

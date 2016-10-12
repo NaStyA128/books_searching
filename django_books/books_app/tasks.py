@@ -22,34 +22,27 @@ def start_email(data, lang):
     try:
         if data.get('text', None):
             start_time = time()
-            # result_pages.extend(get_list_or_404(
-            #     Page, text__icontains=data.get('text', None))[:1])
-            result_pages.extend(get_list_or_404(
-                Page, text__icontains=data.get('text', None)))
-            end_time = time()
+            end_time = None
+            i = 0
+            while True:
+                small_result = get_list_or_404(
+                    Page, text__icontains=data.get('text', None))[i:i+5]
+                i += 1
+                if small_result:
+                    result_pages.extend(small_result)
+                    global end_time
+                    end_time = time()
+                    print(end_time - start_time)
+                else:
+                    break
             logger.info('Time select: {}'.format(end_time - start_time))
-            if result_pages:
-                logger.info('It generate message for send mail.')
-                activate(lang)
-                message = SimpleTemplateResponse(
-                    'message.html', {'result_pages': result_pages})
-                message.render()
-                return send_email(text=message.content.decode('utf-8'),
-                                  to=data.get('email', None))
-            else:
-                return False
+            return letter_formation(result_pages, lang, data.get(
+                'email', None))
         else:
             return False
     except SoftTimeLimitExceeded as softEx:
         logger.error('SoftTimeLimitExceeded: {}'.format(softEx.__dict__))
-        # if result_pages:
-        #     message = SimpleTemplateResponse(
-        #         'message.html', {'result_pages': result_pages})
-        #     message.render()
-        #     return send_email(text=message.content.decode('utf-8'),
-        #                       to=data.get('email', None))
-        # else:
-        #     return False
+        return letter_formation(result_pages, lang, data.get('email', None))
 
 
 def send_email(text, to):
@@ -66,4 +59,17 @@ def send_email(text, to):
     except SMTPException as ex:
         logger.exception(
             'Error send mail! SMTPException: {}'.format(ex.__dict__))
+        return False
+
+
+def letter_formation(results, lang, to):
+    if results:
+        logger.info('It generate message for send mail.')
+        activate(lang)
+        message = SimpleTemplateResponse(
+            'message.html', {'result_pages': results})
+        message.render()
+        return send_email(text=message.content.decode('utf-8'),
+                          to=to)
+    else:
         return False

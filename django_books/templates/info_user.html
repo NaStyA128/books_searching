@@ -5,7 +5,10 @@
 
     <div class="container">
         <p>{% trans "Поиск был начат..." %}</p>
-        <p>{% trans "Результат будет отправлен на указанную почту." %}</p>
+        <p>{% trans "Результат будет отправлен на почту: " %}
+            {% if request.session.email %}
+                {{ request.session.email }}
+            {% endif %}</p>
     </div>
 
 {% endblock content %}
