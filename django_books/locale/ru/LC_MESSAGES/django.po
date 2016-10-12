@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 09:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: books_app/forms.py:15
+msgid "Текст"
+msgstr "Текст"
+
+#: books_app/forms.py:16
+msgid "E-mail"
+msgstr "E-mail"
+
+#: books_app/tasks.py:58
+msgid "Результаты"
+msgstr "Результаты"
+
+#: books_app/views.py:19
+msgid "Ошибка поиска."
+msgstr "Ошибка поиска."
+
+#: templates/base.html:7 templates/message.html:6
+msgid "Книги"
+msgstr "Книги"
+
+#: templates/index.html:10
+msgid "Поиск"
+msgstr "Поиск"
+
+#: templates/info_user.html:7
+msgid "Поиск был начат..."
+msgstr "Поиск был начат..."
+
+#: templates/info_user.html:8
+msgid "Результат будет отправлен на указанную почту."
+msgstr "Результат будет отправлен на указанную почту."
+
+#: templates/message.html:11
+msgid "Результаты поиска"
+msgstr "Результаты поиска"
+
+#: templates/message.html:14
+msgid "Автор: "
+msgstr "Автор: "
+
+#: templates/message.html:15
+msgid "Книга: "
+msgstr "Книга: "
+
+#: templates/message.html:16
+msgid "Часть: "
+msgstr "Часть: "
+
+#: templates/message.html:17
+msgid "Раздел: "
+msgstr "Раздел: "
+
+#: templates/message.html:18
+msgid "Глава: "
+msgstr "Глава: "
+
+#: templates/message.html:19
+msgid "Страница: "
+msgstr "Страница: "

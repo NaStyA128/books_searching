@@ -1,18 +1,25 @@
-{% extends "base.html" %}
-
-{% block content %}
-
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Книги" %}</title>
+</head>
+<body>
+    <div id="content" class="container">
     <div>
-    {% for page in result_pages %}
-        <div style="margin-bottom: 10px; border-bottom: 1px solid black">
-            <p>Автор: {{ page.book.author }}</p>
-            <p>Книга: {{ page.book.name_book }}</p>
-            <p>Часть: {{ page.part }}</p>
-            <p>Раздел: {{ page.section }}</p>
-            <p>Глава: {{ page.chapter }}</p>
-            <p>Страница: {{ page.page_number }}</p>
-        </div>
-    {% endfor %}
+        <h2>{% trans "Результаты поиска" %}</h2>
+        {% for page in result_pages %}
+            <div style="margin-bottom: 10px; border-bottom: 1px solid black">
+                <p>{% trans "Автор: " %} {{ page.book.author }}</p>
+                <p>{% trans "Книга: " %} {{ page.book.name_book }}</p>
+                <p>{% trans "Часть: " %} {{ page.part }}</p>
+                <p>{% trans "Раздел: " %} {{ page.section }}</p>
+                <p>{% trans "Глава: " %} {{ page.chapter }}</p>
+                <p>{% trans "Страница: " %} {{ page.page_number }}</p>
+            </div>
+        {% endfor %}
     </div>
-
-{% endblock content %}
+    </div>
+</body>
+</html>

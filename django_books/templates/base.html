@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load i18n %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Books</title>
+    <title>{% trans "Книги" %}</title>
 
     <link href="{% static 'books_app/bootstrap-3.3.2/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'books_app/bootstrap-3.3.2/css/bootstrap-theme.min.css' %}" rel="stylesheet">
@@ -14,6 +15,15 @@
     <script src="{% static 'books_app/js/scripts.js' %}"></script>
 </head>
 <body>
+    <div id="header" class="container">
+        {% get_available_languages as languages %}
+
+        {% for lang_code, lang_name in languages %}
+            {% language lang_code %}
+                <a class="lang" href="{% url request.resolver_match.url_name %}">{{ lang_name }}</a>
+            {% endlanguage %}
+        {% endfor %}
+    </div>
     <div id="content" class="container">
         {% block content %}
         {% endblock content %}
