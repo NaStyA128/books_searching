@@ -21,9 +21,9 @@ def start_email(data, lang):
     result_pages = []
     try:
         if data.get('text', None):
-            start_time = time()
             end_time = None
             i = 0
+            start_time = time()
             while True:
                 small_result = get_list_or_404(
                     Page, text__icontains=data.get('text', None))[i:i+5]
