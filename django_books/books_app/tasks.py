@@ -14,6 +14,7 @@ from time import time
 
 logger = logging.getLogger('custom')
 logger.setLevel(logging.DEBUG)
+flag = False
 
 
 @shared_task
@@ -32,7 +33,6 @@ def start_email(data, lang):
                     result_pages.extend(small_result)
                     global end_time
                     end_time = time()
-                    print(end_time - start_time)
                 else:
                     break
             logger.info('Time select: {}'.format(end_time - start_time))
@@ -42,7 +42,10 @@ def start_email(data, lang):
             return False
     except SoftTimeLimitExceeded as softEx:
         logger.error('SoftTimeLimitExceeded: {}'.format(softEx.__dict__))
-        return letter_formation(result_pages, lang, data.get('email', None))
+        global flag
+        if not flag:
+            return letter_formation(result_pages, lang,
+                                    data.get('email', None))
 
 
 def send_email(text, to):
@@ -55,7 +58,10 @@ def send_email(text, to):
         email.attach_alternative(text, 'text/html')
         email.content_subtype = 'html'
         logger.info('It send the message to user {}'.format(to))
-        return email.send()
+        if email.send():
+            global flag
+            flag = True
+            return flag
     except SMTPException as ex:
         logger.exception(
             'Error send mail! SMTPException: {}'.format(ex.__dict__))

@@ -20,10 +20,50 @@ header, nav, section, article, aside, footer{
 }
 
 .container{
-    width: 1024px;
+    width: 70%;
     margin: 0 auto;
 }
 
 .thumbnail{
     text-align: center;
 }
+
+#header{
+    margin-top: 10px;
+    text-align: right;
+}
+
+#content{
+    padding: 10px 0 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-top: 20px;
+}
+#content .search-book{
+    display: block;
+    margin: 0 auto;
+    float: none !important;
+    width: 400px;
+}
+#content .search-book p{
+    display: block;
+    position: relative;
+    height: 40px;
+    margin-top: 3px;
+}
+#content .search-book p input{
+    position: absolute;
+    right: 0;
+    width: 250px;
+    height: 40px;
+}
+#content .search-book p label{
+    padding-top: 10px;
+}
+#content .search-book button{
+    float: right;
+    margin-top: 10px;
+}
+/*
+#content .search-book label{
+    margin-bottom: 10px;
+}*/
